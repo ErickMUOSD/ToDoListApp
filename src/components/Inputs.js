@@ -6,13 +6,19 @@ export default function Inputs(props) {
     const {getData} = props
     const [inputData, setInputData] = useState({title: "", content: ""})
     const sendData = () =>   getData(inputData)
+    // const handleChange = (name, value) => {
+    //     setInputData({
+    //         ...inputData,
+    //         [name]: value,
+    //     });
+    //
+    // };
     const handleChange = (name, value) => {
-        setInputData({
-            ...inputData,
-            [name]: value,
+        setInputData(prevState => {
+            return {...prevState, [name]: value}
         });
 
-    };
+      };
    // const randomId =() => Math.random().toString(36).slice(2)
     return (
         <View style={style.card}>

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {ScrollView, StyleSheet, Text, View} from "react-native";
 import Note from "../components/Note";
 import Inputs from "../components/Inputs";
 import NoteTable from "../components/NoteTable";
@@ -8,7 +8,9 @@ import NoteTable from "../components/NoteTable";
 export default function Home() {
     const [data, setData] = useState([])
 
-    const getItems = (items) =>setData([...data, ...[items]])
+    // const getItems = (items) =>setData([...data, ...[items]])
+    const getItems = (items) =>setData(prevState =>  {
+        return [...prevState,...[items] ]})
 
     const  deteleItem = (id) =>{
         const result = data.filter((item, index)=> index!==id)
@@ -16,12 +18,18 @@ export default function Home() {
     }
 
     return (
-        <>
+        <ScrollView>
             <Inputs getData={getItems}/>
             {data && <View style={style.grid}>
-                {data.map((item, index) => <Note key={index} id={index} title={item.title} content={item.content} deleteItem={deteleItem}/>)}
+                {data.map((item, index) =>
+                    <Note
+                        key={index}
+                        id={index}
+                        title={item.title}
+                        content={item.content}
+                        deleteItem={deteleItem}/>)}
             </View>}
-        </>
+        </ScrollView>
     )
 }
 
