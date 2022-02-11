@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Text, View, StyleSheet, TouchableWithoutFeedback} from "react-native";
-
+import IoIcon from 'react-native-vector-icons/AntDesign';
 export default function Note(props) {
     const {title, content, deleteItem, id} = props
 
@@ -11,7 +11,8 @@ export default function Note(props) {
             <Text style={style.content}>{title}</Text>
             <Text>{content}</Text>
             <TouchableWithoutFeedback onPress={removeItem}>
-                <Text style={style.delete}>Delete</Text>
+
+                <IoIcon style={style.delete} size={20} name="delete"/>
             </TouchableWithoutFeedback>
         </View>
 
@@ -42,7 +43,7 @@ const style = StyleSheet.create({
     },
     delete: {
         textAlign: "right",
-        color: "yellow",
+        color: "red",
         marginTop: 5
     }
 

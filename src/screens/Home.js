@@ -27,6 +27,7 @@ export default function Home() {
 
 const style = StyleSheet.create({
     grid: {
+        justifyContent: "center",
         flexDirection: "row",
         flexWrap: "wrap"
     },

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {StyleSheet, Text, TextInput, TouchableWithoutFeedback, View} from "react-native";
-import IoIcon from 'react-native-ionicons';
+import IoIcon from 'react-native-vector-icons/Ionicons';
 
 export default function Inputs(props) {
     const {getData} = props
@@ -27,7 +27,7 @@ export default function Inputs(props) {
                 value={inputData.content}/>
             <TouchableWithoutFeedback onPress={sendData}>
                 <View style={style.icon}>
-                    <Text style={style.text}>Add</Text>
+                    <IoIcon name="add" size={25}/>
                 </View>
             </TouchableWithoutFeedback>
         </View>
